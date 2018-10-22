@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<link rel="stylesheet" type="text/css" href="normalize.css">
+	<title>Thought Contagion</title>
+	<style>
+		body{ background: black; }
+		#bacK{ width: 120%; transition:2s; }
+		#button { width: 1200px; height:150px; color:violet;
+		font-size: 5em; text-align: center; line-height: 150px; 
+		position: absolute; top: 60px; left: calc(50% - 300px); font-weight: bold;
+		animation: fade 2s;
+		animation-delay: 4s;
+		animation-play-state: paused;
+		}
+		#button img { width: 50%; }
+		#button img:hover {cursor: pointer;}
+
+		#beggin { position:absolute; bottom: 75px; right:100px; 
+		display: none;}
+		#beggin img{ width:600px; }
+
+		#dancer { position:absolute; left: calc(50% - 500px); top:calc(50% - 280px);
+		transition-delay: 12.5s;
+		opacity:0;}
+		#dancer img{ width:1000px; }
+
+		#thun {
+
+		
+		color:white;
+		overflow: hidden; width:700px; height:380px; 
+		position:absolute; left: 50px; top: 200px;
+		transition-delay: 26.5s;
+		opacity:0;}
+		#thun img{ width:450px; }
+		#darks {transition:1s;}
+
+		.lyrics { height:20px; margin:5px; color:violet; font-weight:bold; position:absolute; font-size:5em; opacity:0.5;
+
+		animation: dragon 1s;
+		animation-delay: 0s;
+		animation-play-state: running;
+
+		}
+
+		@keyframes dragon{
+		 	from{left:-1500px;}
+		 	to{left: calc(200% + 100px);}
+		}
+		@keyframes fade{
+			0% {opacity: 1;}
+			80% {opacity: 0.1;}
+			90% {opacity: 1;}
+			100% {opacity: 0;}
+		}
+
+		
+
+	</style>
+</head>
+<body>
+	<audio src = "MUSE_-_Thought_Contagion.mp3" id="muSic">
+	</audio>
+
+	<img src="thoughtt.jpg" id="bacK">
+	<div id="muse">
+	</div>
+	<div id="input">
+	</div>
+	<div id="dancer">
+		<img src="dancezom.gif">
+	</div>
+	<div id="button">
+		<img src="logo.png">
+	</div>
+	<div id="beggin">
+		<img id="wittc" src="matt.gif">
+	</div>
+	<div id="thun">
+		<img id="darks" src="thund.gif">
+	</div>
+	
+	
+
+	<script type="text/javascript">
+		var text = "Strung out falling from the big time/Welcome to the infinite black skies/Brain clans fractured identity/Fragments and scattered debris/Thought contagion/Thought contagion/Fall down long winds are counted out/Prop me up before I black out/Withdraw before you're out of time/A clean slate and buried war crimes/You've been bitten/by a true believer/You've been bitten/by someone who's hungrier than you/You've been bitten/by a true believer/You've been bitten/by someone's false beliefs/Thought contagion/Thought contagion/They'll never do what you want them to/Give it up and watch them break through/It's too late for a revolution/Brace for the final solution/Thought contagion/Thought contagion/You've been bit/by a true believer/You've been bit/by someone who's hungrier then you/You've been bit/by a true believer/You've been bitten/by someone's false beliefs/Thought contagion/Thought contagion/Strung out falling from the big time/Welcome to the infinite black skies/It's too late for a revolution/Brace for the final solution";
+
+		var k = text.split("/");
+		var display = "";
+
+	
+
+
+		var toggle = "off"
+		button.onclick = function(){
+			
+			for (var i=0; i<k.length; i++){
+			var c = document.getElementById("muse");
+			var d = c.cloneNode(true);
+			d.className = "lyrics";
+			d.innerHTML = k[i];
+			d.style.left = -2000 + "px";
+			d.style.top = -200 + 30*i + "px";
+			d.style.fontSize = 2 + Math.random()*4 + "em";
+			d.style.animationDelay = Math.random()*2 + "s";
+			input.appendChild(d);
+			}
+
+			muSic.play();
+			bacK.style.opacity = 0;
+			button.style.animationPlayState = "running";
+			wittc.setAttribute("src","wittc.gif");
+			dancer.style.opacity = 1;
+			thun.style.display = "block";
+			thun.style.opacity = 1;
+
+		}
+
+		button.onmouseover = function(){
+			beggin.style.display = "block";
+		}
+
+		button.onmouseout = function(){
+			beggin.style.display = "none";
+		}
+
+		thun.onmouseover = function(){
+			darks.setAttribute("src","drive.gif");
+			darks.style.width = 720 + "px";
+		}
+
+		thun.onmouseout = function(){
+			darks.setAttribute("src","thund.gif");
+			darks.style.width = 450 + "px";
+		}
+		darks.onclick = function(){
+			muSic.setAttribute("src","TheDarkSide.mp3");
+			muSic.play();
+			darks.style.opacity = 0;
+			button.style.display = "none";
+			dancer.style.display = "none";
+			bacK.setAttribute("src","darkside.jpg");
+			bacK.style.opacity = 1;
+			bacK.style.width = 100 + "%";
+
+			
+			
+			
+		}
+		
+		
+	</script>
+</body>
+</html>
